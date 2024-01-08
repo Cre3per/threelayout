@@ -62,7 +62,7 @@ xkb_symbols "basic" {
     key <AB08> { [ p,         P,         backslash,    Greek_pi,       8,         parenright, U2208,    Greek_PI ] };
     key <AB09> { [ v,         V,         at,           Greek_nu,       9,         NoSymbol,   U2209,    Greek_NU ] };
 
-    include "level5(modifier_mapping)"
+    // include "level5(modifier_mapping)"
 };
 
 // Chromebooks typically have the key which is normally in the caps
@@ -90,4 +90,49 @@ xkb_symbols "3l-emacs" {
     key <CAPS> { [ Control_L ] };
 
     modifier_map Control { <CAPS> };
+};
+
+// Mirrors the layout on the vertical axis to make some common qwerty shortcuts
+// left-handed.
+// Bracket pairs, numpad, arrows, are mirrored as groups to preserve their
+// orientation.
+partial alphanumeric_keys
+xkb_symbols "3l-mirrored" {
+    include "3l(basic)"
+    name[Group1] = "English (3l, mirrored)";
+
+    // Second row
+    key <AD01> { [ b,         B,         ampersand,    Greek_beta,     NoSymbol,  NoSymbol,   U2248,    Greek_BETA ] };
+    key <AD02> { [ w,         W,         equal,        Greek_omega,    1,         A,          U2261,    Greek_OMEGA ] };
+    key <AD03> { [ c,         C,         less,         Greek_chi,      2,         B,          U2265,    Greek_CHI ] };
+    key <AD04> { [ k,         K,         greater,      Greek_kappa,    3,         C,          U2264,    Greek_KAPPA ] };
+    key <AD05> { [ x,         X,         exclam,       Greek_xi,       NoSymbol,  NoSymbol,   U2260,    Greek_XI ] };
+    key <AD06> { [ z,         Z,         asciicircum,  Greek_zeta,     Next,      Next,       U21CF,    Greek_ZETA ] };
+    key <AD07> { [ y,         Y,         bracketleft,  Greek_psi,      BackSpace, BackSpace,  U21A6,    Greek_PSI ] };
+    key <AD08> { [ u,         U,         bracketright, Greek_upsilon,  Up,        Up,         U2191,    Greek_UPSILON ] };
+    key <AD09> { [ f,         F,         underscore,   Greek_phi,      Delete,    Delete,     U21A4,    Greek_PHI ] };
+    key <AD10> { [ q,         Q,         quotedbl,     Greek_omicron,  Prior,     Prior,      U21CD,    Greek_OMICRON ] };
+
+    // Home row
+    key <AC01> { [ s,         S,         colon,        Greek_sigma,    NoSymbol,  NoSymbol,   U2203,    Greek_SIGMA ] };
+    key <AC02> { [ n,         N,         apostrophe,   Greek_eta,      4,         D,          U2200,    Greek_ETA ] };
+    key <AC03> { [ t,         T,         parenleft,    Greek_tau,      5,         E,          U2228,    Greek_TAU ] };
+    key <AC04> { [ r,         R,         parenright,   Greek_rho,      6,         F,          U2227,    Greek_RHO ] };
+    key <AC05> { [ d,         D,         question,     Greek_delta,    period,    colon,      U2286,    Greek_DELTA ] };
+    key <AC06> { [ i,         I,         asterisk,     Greek_iota,     Home,      Home,       U21D2,    Greek_IOTA ] };
+    key <AC07> { [ a,         A,         braceleft,    Greek_alpha,    Left,      Left,       U2192,    Greek_ALPHA ] };
+    key <AC08> { [ e,         E,         braceright,   Greek_epsilon,  Down,      Down,       U2193,    Greek_EPSILON ] };
+    key <AC09> { [ h,         H,         minus,        Greek_theta,    Right,     Right,      U2190,    Greek_THETA ] };
+    key <AC10> { [ o,         O,         slash,        Greek_omega,    End,       End,        U21D0,    Greek_OMEGA ] };
+
+    // Bottom row
+    key <AB01> { [ v,         V,         at,           Greek_nu,       0,         NoSymbol,   U2209,    Greek_NU ] };
+    key <AB02> { [ p,         P,         backslash,    Greek_pi,       7,         parenright, U2208,    Greek_PI ] };
+    key <AB03> { [ l,         L,         percent,      Greek_lambda,   8,         parenleft,  U222A,    Greek_LAMBDA ] };
+    key <AB04> { [ g,         G,         plus,         Greek_gamma,    9,         NoSymbol,   U2229,    Greek_GAMMA ] };
+    key <AB05> { [ semicolon, semicolon, grave,        NoSymbol,       comma,     NoSymbol,   U2282,    NoSymbol ] };
+    key <AB06> { [ j,         J,         asciitilde,   Greek_SIGMA,    plus,      NoSymbol,   U21D4,    NoSymbol ] };
+    key <AB07> { [ period,    period,    bar,          NoSymbol,       minus,     NoSymbol,   U21CE,    NoSymbol ] };
+    key <AB08> { [ m,         M,         dollar,       Greek_mu,       asterisk,  NoSymbol,   U2194,    Greek_MU ] };
+    key <AB09> { [ comma,     comma,     numbersign,   NoSymbol,       slash,     NoSymbol,   U21AE,    NoSymbol ] };
 };
